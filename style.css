@@ -9,11 +9,11 @@
     background-color: gray;
 }
 
-#dungeon-table th.classic-column {
+#dungeon-table .classic-cell {
     background-color: aqua;
 }
 
-#dungeon-table th.elite-column {
+#dungeon-table .elite-cell {
     background-color: orange;
 }
 
@@ -21,6 +21,7 @@
     border: 1px solid black;
 }
 
-#dungeon-table tbody tr:first-child {
+#dungeon-table tbody tr td:first-child,
+#dungeon-table tbody tr td:nth-child(2) {
     text-align: center;
 }
