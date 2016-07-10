@@ -1,0 +1,26 @@
+#dungeon-table {
+    border: 1px solid black;
+    border-collapse: collapse;
+    font-family: sans-serif;
+}
+
+#dungeon-table th {
+    font-weight: bold;
+    background-color: gray;
+}
+
+#dungeon-table th.classic-column {
+    background-color: aqua;
+}
+
+#dungeon-table th.elite-column {
+    background-color: orange;
+}
+
+#dungeon-table td {
+    border: 1px solid black;
+}
+
+#dungeon-table tbody tr:first-child {
+    text-align: center;
+}

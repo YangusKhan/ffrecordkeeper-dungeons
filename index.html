@@ -1,7 +1,9 @@
 <html>
   <head>
+    <title>Final Fantasy: Record Keeper Dungeon Parser</title>
     <script type="text/javascript" src="dungeon_parser.js"></script>
     <script type="text/javascript" src="https://apis.google.com/js/client.js?onload=initAuth"></script>
+    <link rel="stylesheet" href="style.css"/>
   </head>
   <body>
     <div class="content">
@@ -9,12 +11,18 @@
 	<table id="dungeon-table" cellpadding="5" cellspacing="5">
 	  <thead>
 	    <tr>
-	      <td>Realm</td>
-	      <td>Name</td>
-	      <td>Stamina Cost</td>
-	      <td>Stamina Reward</td>
-	      <td>Stamina Cost</td>
-	      <td>Stamina Reward</td>
+	      <th></th>
+	      <th></th>
+	      <th class="classic-column" colspan="2">Classic</th>
+	      <th class="elite-column" colspan="2">Elite</th>	      
+	    </tr>
+	    <tr>
+	      <th>Realm</th>
+	      <th>Name</th>
+	      <th class="classic-column">Stamina Cost</th>
+	      <th class="classic-column">Stamina Reward</th>
+	      <th class="elite-column">Stamina Cost</th>
+	      <th class="elite-column">Stamina Reward</th>
 	    </tr>
 	  </thead>
 	  <tbody>
