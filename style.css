@@ -1,27 +1,46 @@
+body {
+  margin: 0;
+}
 #dungeon-table {
-    border: 1px solid black;
-    border-collapse: collapse;
-    font-family: sans-serif;
+  border: 1px solid black;
+  border-collapse: collapse;
+  font-family: sans-serif;
 }
-
 #dungeon-table th {
-    font-weight: bold;
-    background-color: gray;
+  font-weight: bold;
+  background-color: gray;
 }
-
 #dungeon-table .classic-cell {
-    background-color: aqua;
+  background-color: aqua;
 }
-
 #dungeon-table .elite-cell {
-    background-color: orange;
+  background-color: orange;
 }
-
 #dungeon-table td {
-    border: 1px solid black;
+  border: 1px solid black;
 }
-
 #dungeon-table tbody tr td:first-child,
 #dungeon-table tbody tr td:nth-child(2) {
-    text-align: center;
+  text-align: center;
+}
+
+#content {
+}
+#container-filters {
+  display: table;
+  border-spacing: 5px;
+  border: black 3px solid;
+  background-color: rgba(50, 50, 150, 0.7);
+  position: fixed;
+  right: 5px;
+  top: 20%;
+}
+.filter {
+  display: table-row;
+}
+
+.filter label, .filter select {
+  display: table-cell;
+}
+#container-dungeon {
 }
