@@ -95,9 +95,9 @@ function insertRow(table, RowObj) {
     row.dataset.costNormal = RowObj['classic']['stamina'];
     row.dataset.rewardNormal = RowObj['classic']['reward'];
     row.dataset.ratioNormal = RowObj['classic']['ratio'];
-    row.dataset.costNormal = RowObj['elite']['stamina'];
-    row.dataset.rewardNormal = RowObj['elite']['reward'];
-    row.dataset.ratioNormal = RowObj['elite']['ratio'];
+    row.dataset.costElite = RowObj['elite']['stamina'];
+    row.dataset.rewardElite = RowObj['elite']['reward'];
+    row.dataset.ratioElite = RowObj['elite']['ratio'];
     
     var newCell = row.insertCell();
     var realmText = document.createTextNode(RowObj['realm']);
