@@ -22,6 +22,7 @@ dictRealmStrings["CC:VII"] = "7";
 dictRealmStrings["X-2"] = "10";
 dictRealmStrings["XIII-2"] = "13";
 dictRealmStrings["XIII-3"] = "13";
+var arSortIndexDataAttributes = ['realm', 'costNormal', 'rewardNormal', 'ratioNormal', 'costElite', 'rewardElite', 'ratioElite'];
 
 function initAuth() {
     var master_list = localStorage.getItem('session');
@@ -153,7 +154,7 @@ function runFilters() {
     var filterMaterial = filterSelectMaterial.children[filterSelectMaterial.selectedIndex].value;
     
     var table = document.getElementById("dungeon-table");
-    for (var i = 0; i < table.tBodies[0].rows.length; i++) {
+    for (var i = 0, len = table.tBodies[0].rows.length; i < len; i++) {
         var row = table.tBodies[0].rows.item(i);
         if (filterRealm === 'any') {
             row.style.display = "table-row";
@@ -165,5 +166,29 @@ function runFilters() {
                 row.style.display = "table-row";
             }
         }
+    }
+}
+
+function sortTable(table, index, bAscending) {
+    var table = document.getElementById("dungeon-table");
+    var rows = table.tBodies[0].rows;
+    rows = Array.prototype.slice.call(rows);
+    rows.sort(function(a, b) {
+       var left;
+       var right;
+       if (index == 3 || index == 6) {
+           left = parseFloat(a.dataset[arSortIndexDataAttributes[index]]);
+           right = parseFloat(b.dataset[arSortIndexDataAttributes[index]]);
+       } else {
+           left = parseInt(a.dataset[arSortIndexDataAttributes[index]]);
+           right = parseInt(b.dataset[arSortIndexDataAttributes[index]]);
+       }
+       if (bAscending) return left < right;
+       else return right > left;
+    });
+    for (var i = 0, len = rows.length; i < len; i++) {
+        var parent = rows[i].parentNode;
+        var detachedRow = parent.removeChild(rows[i]);
+        parent.appendChild(detachedRow);
     }
 }
