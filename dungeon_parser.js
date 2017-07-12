@@ -170,7 +170,6 @@ function runFilters() {
 }
 
 function sortTable(table, index, bAscending) {
-    var table = document.getElementById("dungeon-table");
     var rows = table.tBodies[0].rows;
     rows = Array.prototype.slice.call(rows);
     rows.sort(function(a, b) {
@@ -183,8 +182,15 @@ function sortTable(table, index, bAscending) {
            left = parseInt(a.dataset[arSortIndexDataAttributes[index]]);
            right = parseInt(b.dataset[arSortIndexDataAttributes[index]]);
        }
-       if (bAscending) return left < right;
-       else return right > left;
+       if (left < right) {
+           if (bAscending) return -1;
+           else return 1;
+       } else if (left > right) {
+           if (bAscending) return 1;
+           else return -1;
+       } else {
+           return 0;
+       }
     });
     for (var i = 0, len = rows.length; i < len; i++) {
         var parent = rows[i].parentNode;
