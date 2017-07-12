@@ -1,6 +1,25 @@
 var spreadsheet_id = '16K1Zryyxrh7vdKVF1f7eRrUAOC5wuzvC3q2gFLch6LQ';
 var sheet_id = '1319409797';
 var API_key = 'AIzaSyDeDLSSUqXfAUyEClwceGUWPhbjJqU-IfM';
+var dictRealmStrings = {};
+dictRealmStrings["I"] = "1";
+dictRealmStrings["II"] = "2";
+dictRealmStrings["III"] = "3";
+dictRealmStrings["IV"] = "4";
+dictRealmStrings["V"] = "5";
+dictRealmStrings["VI"] = "6";
+dictRealmStrings["VII"] = "7";
+dictRealmStrings["VIII"] = "8";
+dictRealmStrings["IX"] = "9";
+dictRealmStrings["X"] = "10";
+dictRealmStrings["XI"] = "11";
+dictRealmStrings["XII"] = "12";
+dictRealmStrings["XIII"] = "13";
+dictRealmStrings["XIV"] = "14";
+dictRealmStrings["XV"] = "15";
+dictRealmStrings["T"] = "t";
+dictRealmStrings["CC:VII"] = "7";
+
 function initAuth() {
     var master_list = localStorage.getItem('session');
     if (master_list === null) {
@@ -19,7 +38,7 @@ function reloadSheet() {
 function getSheet() {
     gapi.client.sheets.spreadsheets.values.get({
 	    'spreadsheetId': spreadsheet_id,
-	    'range': 'Dungeons!A2:L324',
+	    'range': 'Dungeons!A2:L436',
     }).then(parseGoogleResponse);
 }
 function parseGoogleResponse(response) {
@@ -36,7 +55,7 @@ function parseArray(values) {
     var table = document.getElementById("dungeon-table");
     var master_list = [];
     values.forEach(function(element, index, array) {
-      var realm = element[0];
+      var realm = dictRealmStrings[element[0]];
       var name = element[1];
       var ClassicObj = { 'stamina': element[2], 'first_time': element[5], 'mastery': element[6], 'reward': 0 };
       var EliteObj = { 'stamina': element[7], 'first_time': element[10], 'mastery': element[11], 'reward': 0 };
@@ -56,8 +75,8 @@ function parseArray(values) {
 	    }
       var ratio_normal = (ClassicObj['reward'] == 0) ? 0.0 :  (parseFloat(ClassicObj['reward']) / parseFloat(ClassicObj['stamina']));
       var ratio_elite = (EliteObj['reward'] == 0) ?  0.0: (parseFloat(EliteObj['reward']) / parseFloat(EliteObj['stamina']));
-      ClassicObj['ratio'] = ratio_normal.toFixed(2);
-      EliteObj['ratio'] = ratio_elite.toFixed(2);
+      ClassicObj['ratio'] = ratio_normal.toFixed(4);
+      EliteObj['ratio'] = ratio_elite.toFixed(4);
 	    var RowObj = { 'realm': realm, 'name': name, 'classic': ClassicObj, 'elite': EliteObj };
 	    insertRow(table.tBodies[0], RowObj);
 	    master_list.push(RowObj);
