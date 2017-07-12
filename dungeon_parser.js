@@ -43,7 +43,7 @@ function reloadSheet() {
 function getSheet() {
     gapi.client.sheets.spreadsheets.values.get({
 	    'spreadsheetId': spreadsheet_id,
-	    'range': 'Dungeons!A2:L436',
+	    'range': 'Dungeons!A2:L',
     }).then(parseGoogleResponse);
 }
 function parseGoogleResponse(response) {
@@ -92,8 +92,13 @@ function parseArray(values) {
 function insertRow(table, RowObj) {
     var row = table.insertRow();
     row.dataset.realm = RowObj['realm'];
+    row.dataset.costNormal = RowObj['classic']['stamina'];
+    row.dataset.rewardNormal = RowObj['classic']['reward'];
+    row.dataset.ratioNormal = RowObj['classic']['ratio'];
+    row.dataset.costNormal = RowObj['elite']['stamina'];
+    row.dataset.rewardNormal = RowObj['elite']['reward'];
+    row.dataset.ratioNormal = RowObj['elite']['ratio'];
     
-    // REFACTOR: iterate over the object's properties and insert a cell for each one
     var newCell = row.insertCell();
     var realmText = document.createTextNode(RowObj['realm']);
     newCell.appendChild(realmText);
