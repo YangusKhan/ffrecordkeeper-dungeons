@@ -148,13 +148,14 @@ function runFilters() {
     var filterMaterial = filterSelectMaterial.children[filterSelectMaterial.selectedIndex].value;
     
     var table = document.getElementById("dungeon-table");
-    table.tBodies[0].rows.foreach(function(element, index, array) {
+    for (var i = 0; i < table.tBodies[0].rows.length; i++) {
+        var row = table.tBodies[0].rows.item(i);
         if (filterRealm !== 'any') {
-            var rowRealm = element.dataset.realm;
+            var rowRealm = row.dataset.realm;
             if (rowRealm !== filterRealm) {
-                element.style.display = "none";
+                row.style.display = "none";
             } else {
-                element.style.display = "table-row";
+                row.style.display = "table-row";
             }
         }
     });
