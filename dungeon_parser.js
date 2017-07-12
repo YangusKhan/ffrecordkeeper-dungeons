@@ -19,6 +19,7 @@ dictRealmStrings["XIV"] = "14";
 dictRealmStrings["XV"] = "15";
 dictRealmStrings["T"] = "t";
 dictRealmStrings["CC:VII"] = "7";
+dictRealmStrings["X-2"] = "10";
 
 function initAuth() {
     var master_list = localStorage.getItem('session');
