@@ -17,7 +17,7 @@ dictRealmStrings["XII"] = "12";
 dictRealmStrings["XIII"] = "13";
 dictRealmStrings["XIV"] = "14";
 dictRealmStrings["XV"] = "15";
-dictRealmStrings["T"] = "t";
+dictRealmStrings["FFT"] = "t";
 dictRealmStrings["CC:VII"] = "7";
 dictRealmStrings["X-2"] = "10";
 
@@ -33,6 +33,8 @@ function initAuth() {
 }
 function reloadSheet() {
     localStorage.removeItem('session');
+    var table = document.getElementById("dungeon-table");
+    table.innerHTML = "";
     gapi.client.setApiKey(API_key);
 	gapi.client.load('sheets', 'v4').then(getSheet);
 }
