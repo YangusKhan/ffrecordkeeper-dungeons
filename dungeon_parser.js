@@ -14,7 +14,7 @@ function initAuth() {
 function reloadSheet() {
     localStorage.removeItem('session');
     gapi.client.setApiKey(API_key);
-	  gapi.client.load('sheets', 'v4').then(getSheet);
+	gapi.client.load('sheets', 'v4').then(getSheet);
 }
 function getSheet() {
     gapi.client.sheets.spreadsheets.values.get({
@@ -36,11 +36,11 @@ function parseArray(values) {
     var table = document.getElementById("dungeon-table");
     var master_list = [];
     values.forEach(function(element, index, array) {
-	    var realm = element[0];
-	    var name = element[1];
-	    var ClassicObj = { 'stamina': element[2], 'first_time': element[5], 'mastery': element[6], 'reward': 0 };
-	    var EliteObj = { 'stamina': element[7], 'first_time': element[10], 'mastery': element[11], 'reward': 0 };
-	    var check_elite = EliteObj['first_time'] + "," + EliteObj['mastery'];
+      var realm = element[0];
+      var name = element[1];
+      var ClassicObj = { 'stamina': element[2], 'first_time': element[5], 'mastery': element[6], 'reward': 0 };
+      var EliteObj = { 'stamina': element[7], 'first_time': element[10], 'mastery': element[11], 'reward': 0 };
+      var check_elite = EliteObj['first_time'] + "," + EliteObj['mastery'];
       var check_normal = ClassicObj['first_time'] + "," + ClassicObj['mastery'];
       var expression = /(?:Stamina Shard x([0-9]))+/g;
       var match;
@@ -56,8 +56,8 @@ function parseArray(values) {
 	    }
       var ratio_normal = (ClassicObj['reward'] == 0) ? 0.0 :  (parseFloat(ClassicObj['reward']) / parseFloat(ClassicObj['stamina']));
       var ratio_elite = (EliteObj['reward'] == 0) ?  0.0: (parseFloat(EliteObj['reward']) / parseFloat(EliteObj['stamina']));
-      ClassicObj['ratio'] = ratio_normal;
-      EliteObj['ratio'] = ratio_elite;
+      ClassicObj['ratio'] = ratio_normal.toFixed(2);
+      EliteObj['ratio'] = ratio_elite.toFixed(2);
 	    var RowObj = { 'realm': realm, 'name': name, 'classic': ClassicObj, 'elite': EliteObj };
 	    insertRow(table.tBodies[0], RowObj);
 	    master_list.push(RowObj);
@@ -67,6 +67,8 @@ function parseArray(values) {
 
 function insertRow(table, RowObj) {
     var row = table.insertRow();
+    row.dataset.realm = RowObj['realm'];
+    
     // REFACTOR: iterate over the object's properties and insert a cell for each one
     var newCell = row.insertCell();
     var realmText = document.createTextNode(RowObj['realm']);
@@ -105,4 +107,31 @@ function insertRow(table, RowObj) {
     var rewardTextElite = document.createTextNode(RowObj['elite']['ratio']);
     newCell.className = "elite-cell";
     newCell.appendChild(rewardTextElite);
+}
+
+function runFilters() {
+    var filterContainer = document.getElementById('container-filter');
+    var filterSelectRealm = document.getElementById('filter-realm');
+    var filterRealm = filterSelectRealm.children[filterSelectRealm.selectedIndex].value;
+    
+    var filterSelectOrb = document.getElementById('filter-orbs');
+    var filterOrb = filterSelectOrb.children[filterSelectOrb.selectedIndex].value;
+    
+    var filterSelectMC = document.getElementById('filter-mc');
+    var filterMC = filterSelectMC.children[filterSelectMC.selectedIndex].value;
+    
+    var filterSelectMaterial = document.getElementById('filter-materials');
+    var filterMaterial = filterSelectMaterial.children[filterSelectMaterial.selectedIndex].value;
+    
+    var table = document.getElementById("dungeon-table");
+    table.tBodies[0].rows.foreach(function(element, index, array) {
+        if (filterRealm !== 'any') {
+            var rowRealm = element.dataset.realm;
+            if (rowRealm !== filterRealm) {
+                element.style.display = "none";
+            } else {
+                element.style.display = "table-row";
+            }
+        }
+    });
 }

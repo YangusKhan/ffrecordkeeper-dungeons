@@ -35,7 +35,7 @@ body {
   right: 5px;
   top: 20%;
 }
-.filter {
+#container-filters div {
   display: table-row;
 }
 

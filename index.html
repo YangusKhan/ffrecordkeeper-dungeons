@@ -10,7 +10,7 @@
       <div id="container-filters">
         <div class="filter">
           <label for="filter-realm">Realm:</label>
-          <select id="filter-realm">
+          <select id="filter-realm" onchange="runFilters();">
             <option value="any" selected="true">Any</option>
             <option value="1">I</option>
             <option value="2">II</option>
@@ -26,6 +26,7 @@
             <option value="12">XII</option>
             <option value="13">XIII</option>
             <option value="14">XIV</option>
+            <option value="15">XV</option>
             <option value="t">T</option>
           </select>
         </div>
@@ -62,6 +63,9 @@
             <option value="scarletite">Scarletite</option>
             <option value="adamantite">Adamantite</option>
           </select>
+        </div>
+        <div id="container-button">
+            <button onclick="reloadSheet();">Reload Spreadsheet</button>
         </div>
       </div>
       <div id="container-dungeon">
