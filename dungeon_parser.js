@@ -134,7 +134,7 @@ function insertRow(table, RowObj) {
 }
 
 function runFilters() {
-    var filterContainer = document.getElementById('container-filter');
+    var filterContainer = document.getElementById('container-filters');
     var filterSelectRealm = document.getElementById('filter-realm');
     var filterRealm = filterSelectRealm.children[filterSelectRealm.selectedIndex].value;
     
