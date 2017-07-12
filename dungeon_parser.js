@@ -17,9 +17,11 @@ dictRealmStrings["XII"] = "12";
 dictRealmStrings["XIII"] = "13";
 dictRealmStrings["XIV"] = "14";
 dictRealmStrings["XV"] = "15";
-dictRealmStrings["FFT"] = "t";
+dictRealmStrings["FFT"] = "T";
 dictRealmStrings["CC:VII"] = "7";
 dictRealmStrings["X-2"] = "10";
+dictRealmStrings["XIII-2"] = "13";
+dictRealmStrings["XIII-3"] = "13";
 
 function initAuth() {
     var master_list = localStorage.getItem('session');
@@ -34,7 +36,7 @@ function initAuth() {
 function reloadSheet() {
     localStorage.removeItem('session');
     var table = document.getElementById("dungeon-table");
-    table.innerHTML = "";
+    table.tBodies[0].innerHTML = "";
     gapi.client.setApiKey(API_key);
 	gapi.client.load('sheets', 'v4').then(getSheet);
 }
