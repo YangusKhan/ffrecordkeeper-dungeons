@@ -158,5 +158,5 @@ function runFilters() {
                 row.style.display = "table-row";
             }
         }
-    });
+    }
 }
