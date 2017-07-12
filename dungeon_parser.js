@@ -150,7 +150,9 @@ function runFilters() {
     var table = document.getElementById("dungeon-table");
     for (var i = 0; i < table.tBodies[0].rows.length; i++) {
         var row = table.tBodies[0].rows.item(i);
-        if (filterRealm !== 'any') {
+        if (filterRealm === 'any') {
+            row.style.display = "table-row";
+        } else {
             var rowRealm = row.dataset.realm;
             if (rowRealm !== filterRealm) {
                 row.style.display = "none";
