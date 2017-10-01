@@ -27,20 +27,19 @@ body {
 #content {
 }
 #container-filters {
-  display: table;
-  border-spacing: 5px;
-  border: black 3px solid;
-  background-color: rgba(50, 50, 150, 0.7);
+  display: inline-block;
   position: fixed;
-  right: 5px;
-  top: 20%;
-}
-.filter {
-  display: table-row;
-}
-
-.filter label, .filter select {
-  display: table-cell;
+  right: 0;
+  width: 20%;
+  background-color: rgba(50, 50, 150, 0.7);
 }
 #container-dungeon {
+  display: inline-block;
+}
+.filter-group {
+  display: inline-block;
+}
+
+.filter-group label, .filter-group input[type="checkbox"] {
+  display: inline;
 }
