@@ -1,5 +1,4 @@
 var spreadsheet_id = '16K1Zryyxrh7vdKVF1f7eRrUAOC5wuzvC3q2gFLch6LQ';
-var sheet_id = '1319409797';
 var API_key = 'AIzaSyDeDLSSUqXfAUyEClwceGUWPhbjJqU-IfM';
 var decimal_places = 3;
 function initAuth() {
