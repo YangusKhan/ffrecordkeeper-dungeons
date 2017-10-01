@@ -1,27 +1,12 @@
 var spreadsheet_id = '16K1Zryyxrh7vdKVF1f7eRrUAOC5wuzvC3q2gFLch6LQ';
 var API_key = 'AIzaSyDeDLSSUqXfAUyEClwceGUWPhbjJqU-IfM';
 var decimal_places = 3;
-var dictRealmStrings = {};
-dictRealmStrings["I"] = "1";
-dictRealmStrings["II"] = "2";
-dictRealmStrings["III"] = "3";
-dictRealmStrings["IV"] = "4";
-dictRealmStrings["V"] = "5";
-dictRealmStrings["VI"] = "6";
-dictRealmStrings["VII"] = "7";
-dictRealmStrings["VIII"] = "8";
-dictRealmStrings["IX"] = "9";
-dictRealmStrings["X"] = "10";
-dictRealmStrings["XI"] = "11";
-dictRealmStrings["XII"] = "12";
-dictRealmStrings["XIII"] = "13";
-dictRealmStrings["XIV"] = "14";
-dictRealmStrings["XV"] = "15";
-dictRealmStrings["FFT"] = "T";
-dictRealmStrings["CC:VII"] = "7";
-dictRealmStrings["X-2"] = "10";
-dictRealmStrings["XIII-2"] = "13";
-dictRealmStrings["XIII-3"] = "13";
+var dictRealmStrings =
+{ 
+    "I": "1", "II": "2", "III": "3", "IV": "4", "V": "5", "VI": "6", "VII": "7", "VIII": "8",
+    "IX": "9", "X": "10", "XI": "11", "XII": "12", "XIII": "13", "XIV": "14", "XV": "15",
+    "FFT": "T", "CC:VII": "7", "X-2": "10", "XIII-2": "13", "XIII-3": "13"
+};
 var arSortIndexDataAttributes = ['realm', 'costNormal', 'rewardNormal', 'ratioNormal', 'costElite', 'rewardElite', 'ratioElite'];
 
 function initAuth(funcLoadSheet) {
