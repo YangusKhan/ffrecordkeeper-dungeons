@@ -7,86 +7,76 @@
   </head>
   <body>
     <div id="content">
-      <div id="container-filters">
-        <div class="filter">
-          <label for="filter-realm">Realm:</label>
-          <select id="filter-realm">
-            <option value="any" selected="true">Any</option>
-            <option value="1">I</option>
-            <option value="2">II</option>
-            <option value="3">III</option>
-            <option value="4">IV</option>
-            <option value="5">V</option>
-            <option value="6">VI</option>
-            <option value="7">VII</option>
-            <option value="8">VIII</option>
-            <option value="9">IX</option>
-            <option value="10">X</option>
-            <option value="11">XI</option>
-            <option value="12">XII</option>
-            <option value="13">XIII</option>
-            <option value="14">XIV</option>
-            <option value="t">T</option>
-          </select>
-        </div>
-        <div class="filter">
-          <label for="filter-orbs">Orbs:</label>
-          <select id="filter-orbs">
-            <option value="any" selected="true">Any</option>
-            <option value="power">Power</option>
-            <option value="black">Black</option>
-            <option value="white">White</option>
-            <option value="summon">Summon</option>
-            <option value="nonelemental">Non-Elemental</option>
-            <option value="fire">Fire</option>
-            <option value="ice">Ice</option>
-            <option value="lightning">Lightning</option>
-            <option value="earth">Earth</option>
-            <option value="wind">Wind</option>
-            <option value="holy">Holy</option>
-            <option value="dark">Dark</option>
-          </select>
-        </div>
-        <div class="filter">
-          <label for="filter-mc">Memory Crystal:</label>
-          <select id="filter-mc">
-            <option value="any" selected="true">Any</option>
-            <option value="mc1">MC1</option>
-            <option value="mc2">MC2</option>
-          </select>
-        </div>
-        <div class="filter">
-          <label for="filter-materials">Material:</label>
-          <select id="filter-materials">
-            <option value="any" selected="true">Any</option>
-            <option value="scarletite">Scarletite</option>
-            <option value="adamantite">Adamantite</option>
-          </select>
-        </div>
-      </div>
       <div id="container-dungeon">
 	    <table id="dungeon-table" cellpadding="5" cellspacing="5">
 	      <thead>
 	        <tr>
 	          <th></th>
 	          <th></th>
-	          <th class="classic-cell" colspan="3">Classic</th>
-	          <th class="elite-cell" colspan="3">Elite</th>
+	          <th class="classic-cell" colspan="4">Classic</th>
+	          <th class="elite-cell" colspan="4">Elite</th>
 	        </tr>
 	        <tr>
 	          <th>Realm</th>
 	          <th>Name</th>
-	          <th class="classic-cell">Stamina Cost</th>
-	          <th class="classic-cell">Stamina Reward</th>
-	          <th class="classic-cell">Stamina Ratio</th>
-	          <th class="elite-cell">Stamina Cost</th>
-	          <th class="elite-cell">Stamina Reward</th>
-	          <th class="elite-cell">Stamina Ratio</th>
+	          <th class="classic-cell">Cost</th>
+	          <th class="classic-cell">Shards</th>
+	          <th class="classic-cell">Ratio</th>
+	          <th class="classic-cell">Rewards</th>
+	          <th class="elite-cell">Cost</th>
+	          <th class="elite-cell">Shards</th>
+	          <th class="elite-cell">Ratio</th>
+	          <th class="elite-cell">Rewards</th>
 	        </tr>
 	      </thead>
 	      <tbody>
 	      </tbody>
 	    </table>
+      </div>
+      <div id="container-filters">
+        <div class="filter-group" id="filter-realm">
+          <label>Realm:</label>
+          <input type="checkbox" checked="true" value="1">I</input>
+          <input type="checkbox" checked="true" value="2">II</input>
+          <input type="checkbox" checked="true" value="3">III</input>
+          <input type="checkbox" checked="true" value="4">IV</input>
+          <input type="checkbox" checked="true" value="5">V</input>
+          <input type="checkbox" checked="true" value="6">VI</input>
+          <input type="checkbox" checked="true" value="7">VII</input>
+          <input type="checkbox" checked="true" value="8">VIII</input>
+          <input type="checkbox" checked="true" value="9">IX</input>
+          <input type="checkbox" checked="true" value="10">X</input>
+          <input type="checkbox" checked="true" value="11">XI</input>
+          <input type="checkbox" checked="true" value="12">XII</input>
+          <input type="checkbox" checked="true" value="13">XIII</input>
+          <input type="checkbox" checked="true" value="14">XIV</input>
+          <input type="checkbox" checked="true" value="t">T</input>
+        </div>
+        <div class="filter-group" id="filter-orbs">
+          <label>Orbs:</label>
+          <input type="checkbox" checked="true" value="power">Power</input>
+          <input type="checkbox" checked="true" value="black">Black</input>
+          <input type="checkbox" checked="true" value="white">White</input>
+          <input type="checkbox" checked="true" value="summon">Summon</input>
+          <input type="checkbox" checked="true" value="nonelemental">Non-Elemental</input>
+          <input type="checkbox" checked="true" value="fire">Fire</input>
+          <input type="checkbox" checked="true" value="ice">Ice</input>
+          <input type="checkbox" checked="true" value="lightning">Lightning</input>
+          <input type="checkbox" checked="true" value="earth">Earth</input>
+          <input type="checkbox" checked="true" value="wind">Wind</input>
+          <input type="checkbox" checked="true" value="holy">Holy</input>
+          <input type="checkbox" checked="true" value="dark">Dark</input>
+        </div>
+        <div class="filter-group" id="filter-mc">
+          <label>Memory Crystal:</label>
+          <input type="checkbox" checked="true" value="mc1">MC1</input>
+          <input type="checkbox" checked="true" value="mc2">MC2</input>
+        </div>
+        <div class="filter-group" id="filter-materials">
+          <label>Material:</label>
+          <input type="checkbox" checked="true" value="scarletite">Scarletite</input>
+          <input type="checkbox" checked="true" value="adamantite">Adamantite</input>
+        </div>
       </div>
     </div>
   </body>
