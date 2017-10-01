@@ -20,7 +20,7 @@ function reloadSheet() {
 function getSheet() {
     gapi.client.sheets.spreadsheets.values.get({
 	    'spreadsheetId': spreadsheet_id,
-	    'range': 'Dungeons!A2:L364',
+	    'range': 'Dungeons!A2:L',
     }).then(parseGoogleResponse);
 }
 function parseGoogleResponse(response) {
