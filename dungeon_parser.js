@@ -1,22 +1,22 @@
 var spreadsheet_id = '16K1Zryyxrh7vdKVF1f7eRrUAOC5wuzvC3q2gFLch6LQ';
 var API_key = 'AIzaSyDeDLSSUqXfAUyEClwceGUWPhbjJqU-IfM';
 var decimal_places = 3;
-function initAuth() {
+function initAuth(funcLoadSheet) {
     var master_list = localStorage.getItem('session');
     if (master_list === null) {
 	    gapi.client.setApiKey(API_key);
-	    gapi.client.load('sheets', 'v4').then(getSheet);
+	    gapi.client.load('sheets', 'v4').then(funcLoadSheet);
     } else {
 	    var values = JSON.parse(master_list);
 	    parseJSON(values);
     }
 }
-function reloadSheet() {
+function reloadSheet(funcLoadSheet) {
     localStorage.removeItem('session');
     gapi.client.setApiKey(API_key);
-	  gapi.client.load('sheets', 'v4').then(getSheet);
+	gapi.client.load('sheets', 'v4').then(funcLoadSheet);
 }
-function getSheet() {
+function getDungeonSheet() {
     gapi.client.sheets.spreadsheets.values.get({
 	    'spreadsheetId': spreadsheet_id,
 	    'range': 'Dungeons!A2:L',

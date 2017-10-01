@@ -2,7 +2,7 @@
   <head>
     <title>Final Fantasy: Record Keeper Dungeon Parser</title>
     <script type="text/javascript" src="dungeon_parser.js"></script>
-    <script type="text/javascript" src="https://apis.google.com/js/client.js?onload=initAuth"></script>
+    <script type="text/javascript" src="https://apis.google.com/js/client.js?onload=initAuth(getDungeonSheet)"></script>
     <link rel="stylesheet" href="style.css"/>
   </head>
   <body>
@@ -84,7 +84,7 @@
           <input type="checkbox" checked="true" value="adamantite">Adamantite</input>
         </div>
         <div class="filter-group">
-          <button type="button" name="reload" onclick="reloadSheet();">Reload Sheet</button>
+          <button type="button" name="reload" onclick="reloadSheet(getDungeonSheet);">Reload Sheet</button>
         </div>
       </div>
     </div>
