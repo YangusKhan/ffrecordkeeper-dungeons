@@ -1,36 +1,23 @@
-var spreadsheet_id = '16K1Zryyxrh7vdKVF1f7eRrUAOC5wuzvC3q2gFLch6LQ';
-var API_key = 'AIzaSyDeDLSSUqXfAUyEClwceGUWPhbjJqU-IfM';
 var decimal_places = 3;
 var dictRealmStrings =
 { 
     "I": "1", "II": "2", "III": "3", "IV": "4", "V": "5", "VI": "6", "VII": "7", "VIII": "8",
     "IX": "9", "X": "10", "XI": "11", "XII": "12", "XIII": "13", "XIV": "14", "XV": "15",
-    "FFT": "T", "CC:VII": "7", "X-2": "10", "XIII-2": "13", "XIII-3": "13"
+    "FFT": "T",
+    "CC:VII": "7", "DoC:VII": "7",
+    "X-2": "10",
+    "XIII-2": "13", "XIII-3": "13",
+    "IV:TAY": "4",
+    "Type-0": "Z"
 };
 var arSortIndexDataAttributes = ['realm', 'costNormal', 'rewardNormal', 'ratioNormal', 'costElite', 'rewardElite', 'ratioElite'];
 
-function initAuth(funcLoadSheet) {
-    var master_list = localStorage.getItem('session');
-    if (master_list === null) {
-	    gapi.client.setApiKey(API_key);
-	    gapi.client.load('sheets', 'v4').then(funcLoadSheet);
-    } else {
-	    var values = JSON.parse(master_list);
-	    parseJSON(values);
-    }
-}
-function reloadSheet(funcLoadSheet) {
-    localStorage.removeItem('session');
-    var table = document.getElementById("dungeon-table");
-    table.tBodies[0].innerHTML = "";
-    gapi.client.setApiKey(API_key);
-	gapi.client.load('sheets', 'v4').then(funcLoadSheet);
-}
 function getDungeonSheet() {
     gapi.client.sheets.spreadsheets.values.get({
 	    'spreadsheetId': spreadsheet_id,
 	    'range': 'Dungeons!A2:L',
-    }).then(parseGoogleResponse);
+    })
+    .then(parseGoogleResponse);
 }
 function parseGoogleResponse(response) {
     var values = response.result.values;
@@ -73,6 +60,7 @@ function parseArray(values) {
 	    master_list.push(RowObj);
     });
     localStorage.setItem('session', JSON.stringify(master_list));
+    bSheetIsLoaded = true;
 }
 
 function insertCell(RowObj, cellText, cellClassName = "") {
