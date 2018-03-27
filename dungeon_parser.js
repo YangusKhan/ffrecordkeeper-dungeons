@@ -11,6 +11,7 @@ var dictRealmStrings =
     "Type-0": "Z"
 };
 var arSortIndexDataAttributes = ['realm', 'costNormal', 'rewardNormal', 'ratioNormal', 'costElite', 'rewardElite', 'ratioElite'];
+var Table = new Table(document.getElementById('dungeon-table'));
 
 function getDungeonSheet() {
     gapi.client.sheets.spreadsheets.values.get({
